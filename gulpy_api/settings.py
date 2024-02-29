@@ -13,13 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 
 
-import environ
 import rest_framework.pagination
 
 import products.apps
 
-env = environ.Env()
-environ.Env().read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-07&sim%qmh5dsx-oy!$gi)bd=jzfrnssk@jbl7z6ad2u9_@h)3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -94,11 +91,12 @@ WSGI_APPLICATION = 'gulpy_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT')
+        'NAME': 'gulpy_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        # 'PORT': '5432'
+
     }
 }
 
