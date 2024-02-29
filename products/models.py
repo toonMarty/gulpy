@@ -1,11 +1,8 @@
 """
 Define Models
 """
-import random
-import string
-
-from django.db import models
 from bulkmodel.models import BulkModel
+from django.db import models
 
 # Create your models here.
 

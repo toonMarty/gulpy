@@ -1,8 +1,4 @@
-from random import randint
-
-from django.core.exceptions import ObjectDoesNotExist
-from rest_framework import viewsets, status, serializers
-from rest_framework.exceptions import ValidationError
+from rest_framework import viewsets, status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 

@@ -1,7 +1,4 @@
-from django.core.exceptions import ValidationError
-from django.db import IntegrityError
-from rest_framework import serializers, pagination
-from rest_framework.response import Response
+from rest_framework import serializers
 from .models import Product, ProductVariant
 
 
@@ -22,8 +19,6 @@ class ProductVariantBulkCreateSerializer(serializers.ListSerializer):
 
 
 class ProductVariantSerializer(serializers.ModelSerializer):
-
-
     class Meta:
         """
         serialize the ProductVariant model
