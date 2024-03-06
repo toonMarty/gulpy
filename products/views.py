@@ -1,7 +1,11 @@
+from random import randint
+
+from django.db import transaction, IntegrityError
 from rest_framework import viewsets, status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
+from . import fake
 from .models import Product, ProductVariant
 from .serializers import ProductSerializer, ProductVariantSerializer
 
@@ -53,14 +57,9 @@ class ProductVariantViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data, many=True)
         serializer.is_valid(raise_exception=True)
-
+        print(serializer.data)
         try:
             self.perform_create(serializer)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-
-
